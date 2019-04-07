@@ -29,6 +29,9 @@ void drawPiano(){
   } 
 }
 
+void mousePressed(){
+  out.playNote(0.0, 1.0, new SineInstrument(notePressed()));
+}
 float notePressed(){
   if(mouseX > 37.5 && mouseX < 62.5 && mouseY < 125)return 277.183;
   else if(mouseX > 87.5 && mouseX < 112.5 && mouseY < 125)return 311.127;
@@ -45,9 +48,6 @@ float notePressed(){
   return 0.0;
 }
 
-void mousePressed(){
-  out.playNote(0.0, 1.0, new SineInstrument(notePressed()));
-}
 
 class SineInstrument implements Instrument{
   Oscil wave;
